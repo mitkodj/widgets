@@ -15,9 +15,9 @@ $(document).ready(function($) {
 
 		$.ajax({
 		  url: '/weather',
-		  data: {
-		  	location: ''
-		  },
+		  // data: {
+		  // 	location: ''
+		  // },
 		  success: function(response) {
 				console.log(response);
 

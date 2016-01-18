@@ -1,3 +1,5 @@
+'use strict';
+
 var Q = require('Q'),
     _ = require('lodash');
 
@@ -14,7 +16,7 @@ function weatherController(repository) {
     .then(function(weatherData){
 
       // console.log(weather.response);
-      console.log(weatherData.forecast.forecastday);
+      console.log("dddd", weatherData);
       // resultObject = _.filter(weather., function(element){
 
       // });

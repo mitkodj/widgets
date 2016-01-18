@@ -13,8 +13,8 @@ function getWeatherData() {
 
 	request(url, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    // console.log(response) // Show the HTML for the Google homepage. 
-	  	deferred.resolve(response);
+	    var body = JSON.parse(body);
+	  	deferred.resolve(body.forecast.txt_forecast.forecastday);
 	  } else {
 	  	deferred.reject(error);
 	  }
