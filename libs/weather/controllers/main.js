@@ -8,20 +8,15 @@ function weatherController(repository) {
 
   this.getWeather = function (req, res) {
     var resultObject = {
-      city: 'Sofia',
+      city: 'Kalkuta',
       country: 'Bulgaria'
     };
 
     repository.getWeatherData()
     .then(function(weatherData){
+      resultObject.weatherData = weatherData;
 
-      // console.log(weather.response);
-      console.log("dddd", weatherData);
-      // resultObject = _.filter(weather., function(element){
-
-      // });
-
-      res.send(weatherData);
+      res.send(resultObject);
     })
     .catch(function(error){
       res.send(error);
