@@ -20,7 +20,6 @@ $(document).ready(function($) {
 		  // },
 		  success: function(response) {
 
-		  		debugger;
 				$('#widgetWthr div.summary-line1').text(response.city);
 
 				$('#wthr-header-img1').attr('src', response.weatherData[0].icon_url);
