@@ -4,7 +4,7 @@ var router = express.Router();
 module.exports = function(controller){
 
   /* POST users data. */
-  router.post('/', controller.getWeather);
+  router.get('/', controller.getWeather);
 
   return router;
 
