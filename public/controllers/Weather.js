@@ -62,3 +62,47 @@ var GeoCoder = function() {
 
 };
 
+var Weather = function() {
+  this.name = "Kalkuta";
+};
+
+Weather.prototype.setWeatherDay = function(domElement, weatherDay) {
+  var header = $(domElement).children('.wthr-header').children('.wthr-header-item');
+  var icon = $(domElement).children('.wthr-header').children('.wthr-header-img');
+  var max = $(domElement).children('.wthr-max');
+  var min = $(domElement).children('.wthr-min');
+
+  header.text(weatherDay.title.substring(0,3));
+  icon.attr('src', weatherDay.icon_url);
+  max.text(weatherDay.high);
+  min.text(weatherDay.low);
+}
+
+$(document).ready(function($) {
+  // $('#widgetOne').click(function(e) {
+
+    console.log(getLocation());
+
+    $.ajax({
+      url: '/weather',
+      // data: {
+      //  location: ''
+      // },
+      success: function(response) {
+
+        $('#widgetWthr div.summary-line1').text(response.city);
+
+        var currentDay = $('#wthr-body').children(":first"),
+            index = 0;
+
+        while (currentDay && response[index]) {
+          WeatherController.setWeatherDay(currentDay, response[index]);
+          currentDay = $(currentDay).next();
+          index++;
+        }
+      }
+    });
+  // });
+});
+
+WeatherController = new Weather();

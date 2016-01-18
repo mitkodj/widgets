@@ -14,7 +14,8 @@ function getWeatherData() {
 	request(url, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	    var body = JSON.parse(body);
-	  	deferred.resolve(body.forecast.txt_forecast.forecastday);
+	  	// deferred.resolve(body.forecast.txt_forecast.forecastday);
+	  	deferred.resolve(body);
 	  } else {
 	  	deferred.reject(error);
 	  }
