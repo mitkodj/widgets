@@ -5,11 +5,11 @@ var request = require('request');
 function setupWeatherConnection() {
 }
 
-function getWeatherData() {
+function getWeatherData(country, city) {
 
 	var deferred = Q.defer();
 
-	var url = 'http://api.wunderground.com/api/bc03ce9d060e48b5/forecast/q/CA/San_Francisco.json';
+	var url = 'http://api.wunderground.com/api/bc03ce9d060e48b5/forecast/q/' + country + '/' + city + '.json';
 
 	request(url, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {

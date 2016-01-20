@@ -82,6 +82,7 @@ $(document).ready(function($) {
   // $('#widgetOne').click(function(e) {
 
     console.log(getLocation());
+    WeatherController = new Weather();
 
     $.ajax({
       url: '/weather',
@@ -100,9 +101,11 @@ $(document).ready(function($) {
           currentDay = $(currentDay).next();
           index++;
         }
+
+        $( "#widgetWthr" ).animate({
+          opacity: 1
+        }, 1000);
       }
     });
   // });
 });
-
-WeatherController = new Weather();

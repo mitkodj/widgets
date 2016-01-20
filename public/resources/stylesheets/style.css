@@ -127,6 +127,7 @@ header a:hover {
 	min-height: 13em;
 	background-color: #428bca;
 	color: #fff;
+	overflow: hidden;
 }
 
 .pdsa-summary-block .summary-background i,
@@ -172,11 +173,38 @@ header a:hover {
 	color: white;
 	text-decoration: none;
 }
+
+.phantomCover {
+	position: absolute;
+	top: 200px;
+	background-image: url('./../images/earth.jpg');
+	background-size: 100%;
+	/*height: 180px;*/
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	transition: top 0.3s 0s;
+}
+
+.phantomCover.is-visible {
+	top: 0;
+	transition: top 0.3s 0.3s;
+}
+
+.phantomCover .footer {
+	position: absolute;
+	bottom: 0px;
+	font-family: "Lucida Console", Times, serif;
+	font-size: 30;
+	opacity: 0.8;
+}
 /* PSDA END*/
 
 /* WTHR START*/
 #widgetWthr {
-	background-image: url('./../images/rainBackground.jpg');
+	background-image: url('./../images/sunsnow.jpg');
+	background-size: 100%;
+	opacity: 0;
 }
 
 div.wthr-body {

@@ -4,21 +4,17 @@ var Q = require('Q'),
     _ = require('lodash');
 
 function weatherController(repository) {
-	this.repository = repository;
 
   this.getWeather = function (req, res) {
     var resultObject = {
-      city: 'Kalkuta',
+      city: 'Sofia',
       country: 'Bulgaria'
     };
 
-    repository.getWeatherData()
+    repository.getWeatherData(resultObject.country, resultObject.city)
     .then(function(weatherData){
 
-      console.log('callbasack: ', resultObject);
       resultObject = _.merge(resultObject, createWeatherObject(weatherData));
-      // resultObject.weatherData = weatherData;
-      console.log('result: ', resultObject);
 
       res.send(resultObject);
     })
@@ -30,7 +26,6 @@ function weatherController(repository) {
 
 function createWeatherObject(weatherData) {
 
-  console.log();
   var forecastDay = weatherData.forecast.simpleforecast.forecastday,
     resultObject = _.filter(weatherData.forecast.txt_forecast.forecastday, function(item, index) {
       return index%2 == 0;
@@ -42,8 +37,6 @@ function createWeatherObject(weatherData) {
       resultObject[index].low = item.low.celsius;
     }
   });
-
-  console.log(resultObject);
 
   return resultObject;
 }
