@@ -3,13 +3,22 @@
 var Q = require('Q'),
     _ = require('lodash');
 
-function weatherController(repository) {
+function WeatherController(repository) {
+
+  this.prop = "FGFGFGFG";
+  var that = this;
+  this.repository = repository;
+
+  this.funcs();
 
   this.getWeather = function (req, res) {
     var resultObject = {
       city: 'Sofia',
       country: 'Bulgaria'
     };
+
+    console.log(this == that);
+    // this.consi();
 
     repository.getWeatherData(resultObject.country, resultObject.city)
     .then(function(weatherData){
@@ -22,6 +31,28 @@ function weatherController(repository) {
       res.send(error);
     })
   };
+}
+
+WeatherController.prototype.consi = function() {
+  console.log("consi ", this.prop);
+}
+
+WeatherController.prototype.funcs = function() {
+  var resultObject = {
+      city: 'Sofia',
+      country: 'Bulgaria'
+    };
+
+    this.repository.getWeatherData(resultObject.country, resultObject.city)
+    .then(function(weatherData){
+
+      resultObject = _.merge(resultObject, createWeatherObject(weatherData));
+
+      console.log(resultObject);
+    })
+    .catch(function(error){
+      console.log(error);
+    })
 }
 
 function createWeatherObject(weatherData) {
@@ -42,5 +73,5 @@ function createWeatherObject(weatherData) {
 }
 
 module.exports = function(repository) {
-  return new weatherController(repository);
+  return new WeatherController(repository);
 };
