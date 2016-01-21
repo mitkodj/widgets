@@ -1,77 +1,45 @@
-'use strict';
-
 var Q = require('Q'),
     _ = require('lodash');
 
 function WeatherController(repository) {
+    'use strict';
+    this.repository = repository;
 
-  this.prop = "FGFGFGFG";
-  var that = this;
-  this.repository = repository;
+    this.getWeather = function (req, res) {
+        var resultObject = {
+            city: 'Sofia',
+            country: 'Bulgaria'
+        };
 
-  this.funcs();
-
-  this.getWeather = function (req, res) {
-    var resultObject = {
-      city: 'Sofia',
-      country: 'Bulgaria'
+        repository.getWeatherData(resultObject.country, resultObject.city)
+            .then(function (weatherData) {
+                resultObject = _.merge(resultObject, createWeatherObject(weatherData));
+                res.send(resultObject);
+            })
+            .catch(function (error) {
+                res.send(error);
+            });
     };
-
-    console.log(this == that);
-    // this.consi();
-
-    repository.getWeatherData(resultObject.country, resultObject.city)
-    .then(function(weatherData){
-
-      resultObject = _.merge(resultObject, createWeatherObject(weatherData));
-
-      res.send(resultObject);
-    })
-    .catch(function(error){
-      res.send(error);
-    })
-  };
-}
-
-WeatherController.prototype.consi = function() {
-  console.log("consi ", this.prop);
-}
-
-WeatherController.prototype.funcs = function() {
-  var resultObject = {
-      city: 'Sofia',
-      country: 'Bulgaria'
-    };
-
-    this.repository.getWeatherData(resultObject.country, resultObject.city)
-    .then(function(weatherData){
-
-      resultObject = _.merge(resultObject, createWeatherObject(weatherData));
-
-      console.log(resultObject);
-    })
-    .catch(function(error){
-      console.log(error);
-    })
 }
 
 function createWeatherObject(weatherData) {
+    'use strict';
+    var forecastDay = weatherData.forecast.simpleforecast.forecastday,
+        resultObject = _.filter(weatherData.forecast.txt_forecast.forecastday, function (item, index) {
+            return index % 2 === 0;
+        });
 
-  var forecastDay = weatherData.forecast.simpleforecast.forecastday,
-    resultObject = _.filter(weatherData.forecast.txt_forecast.forecastday, function(item, index) {
-      return index%2 == 0;
+    _.forEach(forecastDay, function (item, index) {
+        if (resultObject[index]) {
+            resultObject[index].high = item.high.celsius;
+            resultObject[index].low = item.low.celsius;
+        }
     });
 
-  _.forEach(forecastDay, function(item, index) {
-    if (resultObject[index]) {
-      resultObject[index].high = item.high.celsius;
-      resultObject[index].low = item.low.celsius;
-    }
-  });
-
-  return resultObject;
+    return resultObject;
 }
 
-module.exports = function(repository) {
-  return new WeatherController(repository);
+module.exports = function (repository) {
+    'use strict';
+    return new WeatherController(repository);
 };

@@ -189,7 +189,7 @@ header a:hover {
 .phantomCover.is-visible {
 	top: 0;
 	transition: top 0.3s 0.3s;
-}
+} 
 
 .phantomCover .footer {
 	position: absolute;
