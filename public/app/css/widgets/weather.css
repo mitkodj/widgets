@@ -1,0 +1,63 @@
+/* WTHR START*/
+#widgetWthr {
+	background-image: url('./../../img/sunsnow.jpg');
+	background-size: 100%;
+	/*opacity: 0;*/
+}
+
+div.wthr-body {
+	vertical-align: super;
+	width: 180px;
+	position: absolute;
+	left: 1.3em;
+	top: 4em;
+}
+
+div.wthr-body div.wthr-block{
+	width: 30%;
+	padding: 0px;
+	display: inline-block;
+	overflow: hidden;
+
+}
+
+div.wthr-body div.wthr-block i.wthr-header-item{
+	horizontal-alignment: center;
+}
+
+div.wthr-body div.wthr-block div.wthr-header{
+	height: 40px;
+	font-weight: bold;
+}
+
+div.wthr-body div.wthr-block div.wthr-max{
+	border-bottom: 1px solid white;
+	width: 25px;
+	text-align: center;
+}
+
+div.wthr-body div.wthr-block div.wthr-min{
+	width: 25px;
+	text-align: center;
+}
+
+div.wdgt-faded-background {
+	opacity: 0.3;
+}
+
+div.wthr div.summary-body {
+	opacity: 0.7;
+}
+
+/*div.wthr-middle-day{
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}*/
+
+div.wthr-body div.wthr-block div.wthr-header div.wthr-header-img,
+div.wthr-body div.wthr-block div.wthr-header img.wthr-header-img{
+	background-repeat: no-repeat;
+    height: 20px;
+    background-size: 20px 20px;
+}
+/* WTHR END*/
