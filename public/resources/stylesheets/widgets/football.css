@@ -1,0 +1,75 @@
+/* ftbl START*/
+#widgetFtbl {
+	background-image: url('./../../images/american-football.jpg');
+	background-size: 110%;
+	background-repeat: no-repeat;
+	/*opacity: 0;*/
+}
+
+div.ftbl-body {
+	vertical-align: super;
+	width: 180px;
+	position: absolute;
+	right: 1.3em;
+	top: 5.5em;
+}
+
+div.ftbl-body span.right-span {
+	text-align: right;
+	float: right;
+}
+
+div.ftbl-body div.ftbl-block{
+	width: 30%;
+	padding: 0px;
+	display: block;
+	overflow: hidden;
+	background-color: white;
+	color: #4288CA;
+	opacity: 0.7;
+	width: 100%;
+}
+
+div.ftbl-body div.ftbl-block i.ftbl-header-item{
+	/*horizontal-alignment: center;*/
+}
+
+div.ftbl-body div.ftbl-block div.ftbl-header{
+	height: 40px;
+	font-weight: bold;
+}
+
+div.ftbl-body div.ftbl-block div.ftbl-max{
+	border-bottom: 1px solid white;
+	width: 25px;
+	text-align: center;
+}
+
+div.ftbl-body div.ftbl-block div.ftbl-min{
+	width: 25px;
+	text-align: center;
+}
+
+div.wdgt-faded-background {
+	opacity: 0.3;
+}
+
+div.ftbl div.summary-body {
+	opacity: 0.7;
+	text-align: left;
+	left: 0.8em !important;
+}
+
+div.ftbl div.summary-body div.summary-line1{
+	text-align: left;
+}
+
+div.ftbl div.summary-body div.summary-line2{
+	text-align: left;
+}
+
+div.ftbl div.summary-body span{
+	background-color: white;
+	color: #4288CA;
+}
+/* ftbl END*/
