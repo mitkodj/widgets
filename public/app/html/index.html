@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div id="wthr-body" class="wthr-body" ng-controller="WeatherController">
-                <div ng-repeat="weatherDay in weatherdays" class="wthr-block">
+                <div ng-repeat="weatherDay in weatherdays.days | limitTo : 3" class="wthr-block {{weatherDay.middle_day}}">
                     <div class="wthr-header">
                         <div class="wthr-header-item">{{weatherDay.weekday}}</div>
                         <img class="wthr-header-img" src="{{weatherDay.icon_url}}"></img>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="wthr-max">-9</div>
                     <div class="wthr-min">-20</div>
-                </div>-->s
+                </div>-->
             </div>
         </div>
 
@@ -138,6 +138,7 @@
 
     <script type="text/javascript" src="/app/js/app.js"></script>
     <script type="text/javascript" src="/app/js/controllers/WeatherController.js"></script>
+    <script type="text/javascript" src="/app/js/services/WeatherData.js"></script>
 
 
     <!--<script src="controllers/TestWidget.js"></script>

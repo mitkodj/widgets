@@ -13,7 +13,7 @@ function WeatherController(repository) {
 
         repository.getWeatherData(resultObject.country, resultObject.city)
             .then(function (weatherData) {
-                resultObject = _.merge(resultObject, createWeatherObject(weatherData));
+                resultObject.days = createWeatherObject(weatherData);
                 res.send(resultObject);
             })
             .catch(function (error) {
