@@ -1,0 +1,8 @@
+<div>
+	Weekday: {{$ctrl.weatherdays.weekday}}<br>
+	High: <editable-field field-value="{{$ctrl.weatherdays.high}}"
+	 field-type="text" on-update="$ctrl.update('high', value)"></editable-field>
+	Low: <editable-field field-value="{{$ctrl.weatherdays.low}}"
+	 field-type="text" on-update="$ctrl.update('low', value)"></editable-field>
+	<br>
+</div>
