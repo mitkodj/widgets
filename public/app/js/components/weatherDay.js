@@ -6,11 +6,10 @@
 //It's controller should define:
 //- update(prop-name, prop-value) method
 
-angular.module('widgets')
-.directive('weatherDay', function() {
+widgetsApp.directive('weatherDay', function() {
 
 	return {
-		templateUrl: 'app/html/widgetTemplates/weatherDay.html',
+		templateUrl: 'html/widgetTemplates/weatherDay.html',
 		controllerAs: 'ctrl',
 		bindToController: true,
 		scope: {

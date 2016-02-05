@@ -1,8 +1,8 @@
-var ngModule = angular.module('widgets', []);
+// var ngModule = angular.module('widgets', []);
 
-ngModule.controller('mainController', function($scope) {
-  $scope.items = [1,2,3,4,5];
-});
+// ngModule.controller('mainController', function($scope) {
+//   $scope.items = [1,2,3,4,5];
+// });
 
 function WeatherList($scope) {
 
@@ -22,7 +22,7 @@ function WeatherList($scope) {
 	};
 }
 
-ngModule.directive('weatherList', function () {
+widgetsApp.directive('weatherList', function () {
 	return {
 		templateUrl: 'html/widgetTemplates/weatherWidget.html',
 		controller: WeatherList

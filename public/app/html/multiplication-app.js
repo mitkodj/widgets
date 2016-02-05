@@ -1,4 +1,4 @@
-var ngModule = angular.module('MultiplicationApp', []);
+ngModule = angular.module('MultiplicationApp', []);
 
 ngModule.controller('mainController', function($scope) {
   $scope.items = [1,2,3,4,5];

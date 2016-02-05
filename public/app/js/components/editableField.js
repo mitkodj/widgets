@@ -26,12 +26,14 @@ function EditableFieldController($scope, $element, $attrs) {
 	};
 }
 
-angular.module('widgets').component('editableField', {
-	templateUrl: '../../html/editableField.html',
-	controller: EditableFieldController,
-	bindings: {
-		fieldValue: '@',
-		fieldType: '@',
-		onUpdate: '&'
-	}
+widgetsApp.directive('editableField', function () {
+	return {
+		templateUrl: '../../html/editableField.html',
+		controller: EditableFieldController,
+		scope: {
+			fieldValue: '@',
+			fieldType: '@',
+			onUpdate: '&'
+		}
+	};
 });
